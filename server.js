@@ -5,7 +5,14 @@ const multer = require("multer");
 const app = express();
 // o cors permite a ligação local entre o mesmo sistema
 app.use(cors());
+// SERVIR PUBLIC PARA O ACESSO PUBLICO
+
 app.use(express.static("public"));
+
+
+// SERVIR MODELS (MUITO IMPORTANTE) PARA O ACESSO REFERENCIAL
+
+app.use('/models', express.static('models')); 
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
